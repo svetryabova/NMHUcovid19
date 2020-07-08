@@ -29,3 +29,20 @@ feature_numbers = [1, 27, 7, 30, 31, 35, 45, 47, 60]
 # 35 - insurance
 # 47 - poverty
 features_to_convert = [7, 30, 31, 35, 47]
+# strip dollar signs for features
+strip_dollar_signs = [45]
+
+print(d[1].split()[-1].split('"'))
+print(d[27].split()[-1].split('"'))
+print(d[7].split()[-1].split('"'))
+print(d[30].split()[-1].split('"'))
+print(d[31].split()[-1].split('"'))
+print(d[35].split()[-1].split('"'))
+print(d[45].split()[-1].split('"'))
+print(d[47].split()[-1].split('"'))
+print(d[60].split()[-1].split('"'))
+
+# TO-DO: incorporate all the features
+index = []
+for i in range(4, (4 * number_of_counties + 1), 4):
+    print(d[27].split()[-1].split('"')[i])
