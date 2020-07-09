@@ -13,36 +13,46 @@ for el in header:
         number_of_counties +=1
 number_of_counties //= 2
 
-lines = []
+counties = []
 for i in range(2, (4 * number_of_counties - 1), 4):
     tmp_lst = d[0].split(',')
     state = tmp_lst[i + 1].rstrip('"').lstrip(' ')
     abbrev = state_abbreviations[state]
-    print(tmp_lst[i].lstrip('"').rstrip('County') + abbrev)
+    counties.append(tmp_lst[i].lstrip('"').rstrip('County') + abbrev)
 
 # features we want to use
 feature_numbers = [1, 27, 7, 30, 31, 35, 45, 47, 60]
+# delete commas
+comma_ind = [1, 45]
 # convert from percent to fraction:
 # 7 - persons 65 and over
 # 30 - computer
 # 31 - Internet
 # 35 - insurance
 # 47 - poverty
-features_to_convert = [7, 30, 31, 35, 47]
-# strip dollar signs for features
-strip_dollar_signs = [45]
+percent_ind = [7, 30, 31, 35, 47]
+# remove dollar signs
+money_amount_ind = [45]
 
-print(d[1].split()[-1].split('"'))
-print(d[27].split()[-1].split('"'))
-print(d[7].split()[-1].split('"'))
-print(d[30].split()[-1].split('"'))
-print(d[31].split()[-1].split('"'))
-print(d[35].split()[-1].split('"'))
-print(d[45].split()[-1].split('"'))
-print(d[47].split()[-1].split('"'))
-print(d[60].split()[-1].split('"'))
-
-# TO-DO: incorporate all the features
-index = []
+county_ind = 0
 for i in range(4, (4 * number_of_counties + 1), 4):
-    print(d[27].split()[-1].split('"')[i])
+    s = counties[county_ind] + ','
+    for ind in feature_numbers:
+        f = d[ind].split()[-1].split('"')[i]
+        if ind in comma_ind:
+            # remove comma from string
+            f = f.replace(',', '')
+        elif ind in percent_ind:
+            # remove % character and convert to fraction representation
+            f = f.replace('%', '')
+            f = round((float(f) / 100) * 1000) / 1000
+            f = str(f)
+        if ind in money_amount_ind:
+            # remove dollar sign
+            f = f.replace('$', '')
+        s += f + ','
+    s += '\n'
+    counties[county_ind] = s
+    county_ind += 1
+
+print(counties)
