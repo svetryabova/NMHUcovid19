@@ -1,8 +1,10 @@
 from helpers import *
 
+output_filename = 'D:/Projects/usa_county_dataset.csv'
+
 # read file downloaded from Census website
-filename = 'data.csv'
-with open(filename) as f:
+input_filename = 'data.csv'
+with open(input_filename) as f:
     d = f.readlines()
 
 # calculate number of counties described in a file
@@ -51,8 +53,12 @@ for i in range(4, (4 * number_of_counties + 1), 4):
             # remove dollar sign
             f = f.replace('$', '')
         s += f + ','
+    s = s.rstrip(',')
     s += '\n'
     counties[county_ind] = s
     county_ind += 1
 
 print(counties)
+
+with open(output_filename, 'a') as f:
+    f.writelines(counties)
