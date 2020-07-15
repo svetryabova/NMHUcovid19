@@ -1,7 +1,7 @@
 from helpers import *
 from glob import glob
 
-output_file = 'D:/Projects/usa_county_dataset.csv'
+output_file = 'D:/Projects/COVID-2019/NMHUcovid19/data/usa_county_dataset.csv'
 
 # read file downloaded from Census website
 input_file = 'D:/Projects/COVID-2019/CensusCSV/*.csv'
@@ -28,7 +28,7 @@ def extractData(input_file, output_file):
     # features we want to use
     feature_numbers = [1, 27, 7, 30, 31, 35, 45, 47, 60]
     # delete commas
-    comma_ind = [1, 45]
+    comma_ind = [1, 45, 60]
     # convert from percent to fraction:
     # 7 - persons 65 and over
     # 30 - computer
