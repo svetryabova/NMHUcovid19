@@ -1,4 +1,4 @@
-# Papers related to our project
+# Papers related to the project
 Here are some articles on clustering algorithms:
 
 * Python scikit algorithms: https://scikit-learn.org/stable/modules/clustering.html
