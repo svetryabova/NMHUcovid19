@@ -47,6 +47,12 @@ def seir_predict(start_date=date.today(), prediction_period=10, N=331e6, e0=100,
     return np.concatenate((I, D, S))
 
 def fun(theta):
+    '''
+    This function is for least-square optimization
+    based on real data (for Arizona)
+    :param theta: initial parameters
+    :return: optimization result
+    '''
     virus_params = {'alpha': theta[0], 'beta': theta[1], 'epsilon': theta[2], 'gamma': theta[3]}
     I_real = [13516, 14545, 15478, 15993, 17556, 18645, 20081, 20867, 21462, 22906]
     D_real = [917, 941, 981, 996, 1012, 1042, 1044, 1047, 1070, 1095]
@@ -60,7 +66,10 @@ if __name__ == '__main__':
     # S, E, I, R, D, dates = seir_predict()
     # plt.plot(dates, S)
     # plt.show()
-#     'alpha': 0.00113, 'beta': 0.219, 'epsilon': 0.5, 'gamma': 0.0714
+    #'alpha': 0.00113, 'beta': 0.219, 'epsilon': 0.5, 'gamma': 0.0714
+
+    # initial values of parameters
     theta0 = [0.00113, 0.219, 0.5, 0.0714]
+    # optimize parameters
     res = least_squares(fun, theta0, bounds=([0, 0, 0, 0], [2, 2, 2, 2]))
     print(res)
