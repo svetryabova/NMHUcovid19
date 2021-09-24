@@ -14,7 +14,7 @@ Several topics related to analysis of COVID-19 data were investigated within the
 
 ## Presentation of the results
 The results of the study were presented at the J. Anthony Paredes Memorial Plenary within the 2021 Annual Meeting organized by the Society for Applied Anthropology.
-Confernence program: https://www.appliedanthro.org/application/files/3116/0935/0174/PRELIMINARY_PROG_2021.pdf.
+Conference program: https://www.appliedanthro.org/application/files/3116/0935/0174/PRELIMINARY_PROG_2021.pdf.
 
 ## Research group
 * Dr. Gil Gallegos, PI, Computer Science
