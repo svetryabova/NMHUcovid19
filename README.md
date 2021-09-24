@@ -1,9 +1,7 @@
-# NMHU COVID-19
-NMHU COVID-19 project materials
+This branch contains following subprojects as a part of NMHU COVID-19 research:
 
-This repository stores data and work files on New Mexico Highlands University (NMHU) COVID-19 modelling project.
+- Machine learning SEIR model of COVID-19 spread
+- Clustering of COVID-19 data based on socio-economic features of the US counties
+- Extraction of US Census 2019 data
 
-Here are some useful links:
-
-* US demographic data: https://www.census.gov/quickfacts/fact/table/US/PST045219
-* Global COVID-19 data: https://github.com/midas-network/COVID-19
+Source code, US Census data, related papers can be found in this branch.
